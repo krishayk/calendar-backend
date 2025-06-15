@@ -17,11 +17,13 @@ app.use(cors({
   credentials: true
 }));
 
-// Session middleware
+// Session middleware with cross-site settings
 app.use(session({
   name: 'session',
   keys: [process.env.SESSION_SECRET || 'your-session-secret'],
-  maxAge: 24 * 60 * 60 * 1000 // 1 day
+  maxAge: 24 * 60 * 60 * 1000, // 1 day
+  sameSite: 'none',
+  secure: true
 }));
 
 // Google OAuth2 setup
