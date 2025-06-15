@@ -42,7 +42,7 @@ app.post('/api/create-event', async (req, res) => {
 
     res.json({
       eventLink: response.data.htmlLink,
-      meetLink: response.data.conferenceData.entryPoints?.find(e => e.entryPointType === 'video')?.uri
+      meetLink: response.data.conferenceData?.entryPoints?.find(e => e.entryPointType === 'video')?.uri || null
     });
   } catch (err) {
     console.error(err);
