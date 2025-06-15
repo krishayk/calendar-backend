@@ -27,7 +27,6 @@ app.post('/api/create-event', async (req, res) => {
       description,
       start: { dateTime: start, timeZone: 'America/Los_Angeles' },
       end: { dateTime: end, timeZone: 'America/Los_Angeles' },
-      attendees: attendees.map(email => ({ email })),
       conferenceData: {
         createRequest: { requestId: Math.random().toString(36).substring(2) }
       }
