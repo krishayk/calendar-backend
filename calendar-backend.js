@@ -7,7 +7,13 @@ const key = require('./service-account.json'); // Place your service account JSO
 const SCOPES = ['https://www.googleapis.com/auth/calendar'];
 
 const app = express();
-app.use(cors());
+  app.use(cors({
+    origin: [
+      'http://localhost:3000',
+      'https://eastbay-tutoring-scheduler.vercel.app'
+    ],
+    credentials: true
+  }));
 app.use(express.json());
 
 app.post('/api/create-event', async (req, res) => {
